@@ -1,5 +1,6 @@
 from modules.consultas import consultar_preco, consultar_historico_de_preco
 from modules.historico import salvar_no_historico, exibir_historico
+from modules.exportacao import exportar_para_csv
 
 def volta_ao_menu():
     continuar = None
@@ -36,6 +37,7 @@ def exibir_menu():
         print("1 - Consultar preço de criptomoedas.")
         print("2 - Acessar histórico de consultas.")
         print("3 - Acessar historico de preços de criptomoedas.")
+        print("4 - Exportar dados para CSV")
         print("0 - Sair.")
 
         opcao = input("\nDigite uma opção: ").strip()
@@ -63,11 +65,16 @@ def exibir_menu():
                 cripto = input("Digite o nome da Criptomoeda (ex: bitcoin, ethereum): ").lower()
                 intervalo = input("Escolha o intervalo de tempo (24h, 7d, 30d): ")
                 print(consultar_historico_de_preco(cripto, intervalo))
-    
+
                 print("\n1 - Consultar histórico de preço de outra criptomoeda.")
                 print("0 - Voltar ao menu principal.")
                 if not volta_ao_menu():
                     break
+
+        elif opcao == "4":
+            cripto = input("Digite o nome da criptomoeda para exportar os dados para CSV: ")
+            exportar_para_csv(cripto)
+
 
         elif opcao == "0":
             print("Saindo do programa...")

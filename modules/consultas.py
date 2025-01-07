@@ -1,6 +1,8 @@
 import requests
 from datetime import datetime, timedelta, timezone
 
+import requests
+
 def consultar_preco(cripto):
     url = "https://api.coingecko.com/api/v3/simple/price?ids={}&vs_currencies=usd".format(cripto)
     resposta = requests.get(url)
@@ -11,11 +13,11 @@ def consultar_preco(cripto):
         if cripto in dados:
             preco = dados[cripto].get('usd', 'N/A')
             variacao = dados[cripto].get('usd_24h_change', 'N/A')
-            return f"\n{cripto.capitalize()} - Preço: ${preco} | Variação 24h: {variacao}%"
+            return {'preco': preco, 'variacao': variacao}
         else:
-            return f"A criptomoeda {cripto} não foi encontrada."
+            return {'erro': f"A criptomoeda {cripto} não foi encontrada."}
     else:
-        return "Erro ao consultar preço. Tente novamente."
+        return {'erro': "Erro ao consultar preço. Tente novamente."}
 
 def consultar_historico_de_preco(cripto, intervalo):
      # Define a URL para consulta histórica
