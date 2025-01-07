@@ -1,6 +1,35 @@
 from modules.consultas import consultar_preco, consultar_historico_de_preco
 from modules.historico import salvar_no_historico, exibir_historico
 
+def volta_ao_menu():
+    continuar = None
+    while continuar is None:
+        try:
+            continuar = int(input())
+            if continuar == 0:
+                return False
+            elif continuar == 1:
+                return True
+        except ValueError:
+            print("Opção inválida. Digite 1 ou 0.")
+            continuar = None
+
+
+    
+ #   while (continuar == None):
+ #       try:
+ #           continuar = int(input())
+ #           if (continuar == 0):
+ #               continuar = False
+ #           elif (continuar == 1):
+ #               continuar = True
+ #       except ValueError: 
+ #           continue
+ #   if (continuar == False):
+ #       break
+
+
+
 def exibir_menu():
     while True:
         print("\n=== Menu de Criptomoedas ===\n")
@@ -10,11 +39,18 @@ def exibir_menu():
         print("0 - Sair.")
 
         opcao = input("\nDigite uma opção: ").strip()
+   
 
         if opcao == "1":
-            cripto = input("Digite o nome da Criptomoeda (ex: bitcoin, ethereum): ").lower()
-            print(consultar_preco(cripto))
-            salvar_no_historico(cripto)
+            while True:
+                cripto = input("Digite o nome da Criptomoeda (ex: bitcoin, ethereum): ").lower()
+                print(consultar_preco(cripto))
+                salvar_no_historico(cripto)
+
+                print("\n1 - Consultar outra criotomoeda.")
+                print("0 - Voltar ao menu principal.")
+                if not volta_ao_menu():
+                    break
 
         elif opcao == "2":
             historico = exibir_historico()
@@ -23,9 +59,15 @@ def exibir_menu():
                 print(cripto)
 
         elif opcao == "3":
-            cripto = input("Digite o nome da Criptomoeda (ex: bitcoin, ethereum): ").lower()
-            intervalo = input("Escolha o intervalo de tempo (24h, 7d, 30d): ")
-            print(consultar_historico_de_preco(cripto, intervalo))
+            while True:
+                cripto = input("Digite o nome da Criptomoeda (ex: bitcoin, ethereum): ").lower()
+                intervalo = input("Escolha o intervalo de tempo (24h, 7d, 30d): ")
+                print(consultar_historico_de_preco(cripto, intervalo))
+    
+                print("\n1 - Consultar histórico de preço de outra criptomoeda.")
+                print("0 - Voltar ao menu principal.")
+                if not volta_ao_menu():
+                    break
 
         elif opcao == "0":
             print("Saindo do programa...")
