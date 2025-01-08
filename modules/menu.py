@@ -16,21 +16,6 @@ def volta_ao_menu():
             continuar = None
 
 
-    
- #   while (continuar == None):
- #       try:
- #           continuar = int(input())
- #           if (continuar == 0):
- #               continuar = False
- #           elif (continuar == 1):
- #               continuar = True
- #       except ValueError: 
- #           continue
- #   if (continuar == False):
- #       break
-
-
-
 def exibir_menu():
     while True:
         print("\n=== Menu de Criptomoedas ===\n")
