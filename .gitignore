@@ -1,0 +1,15 @@
+# Arquivos de configuração
+.env
+
+# Arquivos gerados pelo sistema
+*.log
+*.tmp
+
+# Diretórios do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Diretórios de IDE
+.vscode/
+.idea/
