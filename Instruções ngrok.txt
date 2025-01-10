@@ -1,10 +1,11 @@
 1 - Roda a aplicação bot.py
 
-2 - vai no Endpoints do site do ngrok, copia a url do endpoint.
+2 - Abre a aplicação do ngrok no terminal:
+    - cd desktop
+    - ngrok.exe http http://127.0.0.1:5000 (ip dado pelo flask)
 
-3 - Cola a url do endpoint no messaging Twilio em POST
+3 - vai no Endpoints do site do ngrok, copia a url do endpoint.
 
-4 - Abre a aplicação do ngrok no terminal:
-    - cd 
-    - ngrok.exe http http://127.0.0.1:5000(ip dado pelo flask)
+4 - Cola a url do endpoint no messaging Twilio em POST
+
     

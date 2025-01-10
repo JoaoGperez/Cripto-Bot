@@ -15,9 +15,8 @@ def consultar_preco(cripto):
             variacao = dados[cripto].get('usd_24h_change', 'N/A')
             return {'preco': preco, 'variacao': variacao}
         else:
-            return {'erro': f"A criptomoeda {cripto} não foi encontrada."}
-    else:
-        return {'erro': "Erro ao consultar preço. Tente novamente."}
+            return {'erro': "Criptomoeda não encontrada"}
+        
 
 def consultar_historico_de_preco(cripto, intervalo):
      # Define a URL para consulta histórica
