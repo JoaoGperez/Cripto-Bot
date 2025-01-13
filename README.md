@@ -27,6 +27,7 @@ Este projeto foi desenvolvido para fornecer informações sobre preços de cript
 - Python 3.9 ou superior.
 - Conta no Twilio.
 - Ngrok (para expor o servidor local).
+- Conta na CoinGecko (para usar a API)
 
 ## 📦 Instalação
 
